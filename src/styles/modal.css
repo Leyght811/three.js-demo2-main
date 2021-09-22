@@ -1,0 +1,31 @@
+#modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 500;
+  }
+
+  #modalClose{
+    display: inline-block;
+    position: relative;
+    font-size: 26px;
+    color: white;
+    left: calc(100% - 36px);
+    top: 10px;
+    
+  }
+
+  #modalClose:hover{
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+  }
+
+  #colorPicker{
+    /* display: inline-block; */
+    position: relative;
+    top: calc(50vh - 150px);
+    left: calc(50% - 110px);
+  }

@@ -4,8 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@react-three/cannon": "2.5.1",
+    "@react-three/drei": "7.3.1",
+    "@react-three/fiber": "7.0.6",
+    "react": "^17.0.2",
+    "react-color": "^2.19.3",
+    "react-color-palette": "^6.1.0",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
+    "three": "^0.132.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
