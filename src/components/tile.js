@@ -14,6 +14,9 @@ export default function Tile(props) {
       ref={ref}
       castShadow
       receiveShadow
+      onPointerEnter={() => {console.log("enter")}}
+      onPointerLeave={() => {console.log("Leave")}}
+      onClick={() => {console.log("click")}}
       geometry={nodes.Tile.geometry}
     >
       <meshStandardMaterial color={"white"} />

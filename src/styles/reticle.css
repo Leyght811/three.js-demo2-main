@@ -1,0 +1,9 @@
+#reticle{
+    display: inline-block;
+    position: absolute;
+    left: calc(50% - 8px);
+    top: calc(50vh - 33px);
+    z-index: 200;
+    height: 16px;
+    
+}
