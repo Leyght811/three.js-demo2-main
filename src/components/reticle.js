@@ -3,7 +3,7 @@ import "../styles/reticle.css"
 
 const Reticle = (props) => {
     return(
-        <div id="reticle">
+        <div style={{display:props.display}} id="reticle">
             <i className="far fa-dot-circle"></i>
         </div>
     )

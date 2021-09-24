@@ -1,12 +1,11 @@
 import ReactDOM from "react-dom";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles/style.css";
 import Modal from "./components/modal";
 import Footer from "./components/footer";
 import CanvasContainer from "./components/canvasContainer";
 
 import "./styles/style.css";
-import Reticle from "./components/reticle";
 
 const App = (props) => {
 
@@ -15,12 +14,15 @@ const App = (props) => {
   const changeColor = (color) => {
     setColor(color)
   }
+
+  const ref = useRef()
   
   return (
     <div id="content">
-      <Reticle />
+      
       <Modal colorChanger={changeColor} />
       <CanvasContainer color={color} />
+      {/* <Content /> */}
       <Footer color={color} />
     </div>
   );
