@@ -26,7 +26,7 @@ const Modal = (props) => {
         <i className="far fa-window-close"></i>
       </div>
       <div id="colorPicker">
-        <SketchPicker color={color} onChangeComplete={handleColorChange} />
+        <SketchPicker disableAlpha={true} color={color} onChangeComplete={handleColorChange} />
       </div>
     </div>
   );
