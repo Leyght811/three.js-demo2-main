@@ -1,15 +1,5 @@
-import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import * as THREE from "three";
-import { PointerLockControls, Box, PerspectiveCamera } from "@react-three/drei";
 import React, { useRef, useState, useEffect } from "react";
-import { Physics, Debug } from "@react-three/cannon";
 import { Wall } from "./wall";
-import Sink from "./sink";
-import Tile from "./tile";
-import { Player } from "./player";
-import Reticle from "./reticle";
-import Tiles from "./tiles";
-import "../styles/canvasContainer.css";
 
 const Walls = (props, reticleDisplay) => {
     let rotations = [
