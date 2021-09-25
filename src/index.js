@@ -8,22 +8,23 @@ import CanvasContainer from "./components/canvasContainer";
 import "./styles/style.css";
 
 const App = (props) => {
+  const [color, setColor] = useState("#FFFFFF");
+  const [texture, setTexture] = useState("blank.jpg");
 
-  const [color, setColor] = useState("#121212")
+  const ref = useRef();
 
-  const changeColor = (color) => {
-    setColor(color)
-  }
-
-  const ref = useRef()
-  
   return (
     <div id="content">
-      
-      <Modal colorChanger={changeColor} />
-      <CanvasContainer color={color} />
-      {/* <Content /> */}
-      <Footer color={color} />
+      <Modal
+        colorChanger={(color) => {
+          setColor(color);
+        }}
+        textureChanger={(texture) => {
+          setTexture(texture);
+        }}
+      />
+      <CanvasContainer texture={texture} color={color} />
+      <Footer texture={texture} color={color} />
     </div>
   );
 };
