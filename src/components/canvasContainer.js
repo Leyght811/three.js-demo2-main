@@ -10,10 +10,11 @@ import { Player } from "./player";
 import Reticle from "./reticle";
 import Tiles from "./tiles";
 import Walls from "./walls";
+import Toilet from "./toilet";
 import "../styles/canvasContainer.css";
+import Shower from "./shower";
 
 const CanvasContainer = (props) => {
-
   const [reticleDisplay, setReticleDisplay] = useState("none");
 
   const controlsRef = useRef();
@@ -41,10 +42,12 @@ const CanvasContainer = (props) => {
         <Physics gravity={[0, -30, 0]}>
           {Walls(props, reticleDisplay)}
           <Sink
-            scale={2.5}
-            position={[42.5, 23.5, 10]}
+            scale={2}
+            position={[42.5, 19.5, 10]}
             rotation={[0, Math.PI / -2, 0]}
           />
+          <Toilet scale={2} position={[-42.5, 12, -15]} />
+          <Shower scale={2} position={[-33, 28, 33]} />
           <Box args={[100, 0.4, 100]} />
           {Tiles(reticleDisplay == "none" ? false : true, props)}
           <Player />
