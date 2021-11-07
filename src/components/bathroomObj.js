@@ -76,9 +76,6 @@ export default function BathroomObj(props) {
               case "wood_texture_05.jpg":
                 setNormalMap("05.png");
                 break;
-              case "wood_texture_06.jpg":
-                setNormalMap("06.png");
-                break;
             }
           }
         }}
