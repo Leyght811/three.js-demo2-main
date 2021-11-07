@@ -13,6 +13,8 @@ import Walls from "./walls";
 import Toilet from "./toilet";
 import "../styles/canvasContainer.css";
 import Shower from "./shower";
+import Bathroom from "./bathroom";
+import { Ground } from "./ground";
 
 const CanvasContainer = (props) => {
   const [reticleDisplay, setReticleDisplay] = useState("none");
@@ -26,6 +28,7 @@ const CanvasContainer = (props) => {
       <Canvas
         camera={{ position: [0, 50, 100] }}
         raycaster={{
+          filter: (intersects, state) => intersects.slice(0, 1),
           computeOffsets: (_, { size: { width, height } }) => {
             if (isLocked.current) {
               return {
@@ -38,9 +41,14 @@ const CanvasContainer = (props) => {
           },
         }}
       >
-        <pointLight intensity={1} color="white" position={[0, 100, 0]} />
+        <pointLight
+          intensity={1}
+          intensity={2}
+          color="white"
+          position={[50, 50, -50]}
+        />
         <Physics gravity={[0, -30, 0]}>
-          {Walls(props, reticleDisplay)}
+          {/* {Walls(props, reticleDisplay)}
           <Sink
             scale={2}
             position={[42.5, 19.5, 10]}
@@ -50,11 +58,14 @@ const CanvasContainer = (props) => {
           <Shower scale={2} position={[-33, 28, 33]} />
           <Box args={[100, 0.4, 100]} />
           {Tiles(reticleDisplay == "none" ? false : true, props)}
+           */}
           <Player />
+          <Ground />
+          <Bathroom clickable={reticleDisplay == "none" ? false : true} color={props.color} texture={props.texture} scale={1} />
         </Physics>
+
         <PointerLockControls
           onUpdate={() => {
-            console.log(controlsRef.current);
             if (controlsRef.current) {
               controlsRef.current.addEventListener("lock", () => {
                 isLocked.current = true;

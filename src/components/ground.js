@@ -7,7 +7,7 @@ export const Ground = (props) => {
   
   return (
     <mesh ref={ref} receiveShadow>
-      <planeGeometry args={[100, 100]} />
+      <planeGeometry args={[1, 1]} />
     </mesh>
   )
 }
