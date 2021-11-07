@@ -28,6 +28,7 @@ const CanvasContainer = (props) => {
       <Canvas
         camera={{ position: [0, 50, 100] }}
         raycaster={{
+          filter: (intersects, state) => intersects.slice(0, 1),
           computeOffsets: (_, { size: { width, height } }) => {
             if (isLocked.current) {
               return {
@@ -40,7 +41,12 @@ const CanvasContainer = (props) => {
           },
         }}
       >
-        <pointLight intensity={1} intensity={2} color="white" position={[50, 50, -50]} />
+        <pointLight
+          intensity={1}
+          intensity={2}
+          color="white"
+          position={[50, 50, -50]}
+        />
         <Physics gravity={[0, -30, 0]}>
           {/* {Walls(props, reticleDisplay)}
           <Sink
@@ -53,16 +59,13 @@ const CanvasContainer = (props) => {
           <Box args={[100, 0.4, 100]} />
           {Tiles(reticleDisplay == "none" ? false : true, props)}
            */}
-           <Player />
-           <Ground />
-          <Debug>
-            <Bathroom color={props.color} texture={props.texture} scale={0.15} />
-          </Debug>
+          <Player />
+          <Ground />
+          <Bathroom clickable={reticleDisplay == "none" ? false : true} color={props.color} texture={props.texture} scale={1} />
         </Physics>
 
         <PointerLockControls
           onUpdate={() => {
-            console.log(controlsRef.current);
             if (controlsRef.current) {
               controlsRef.current.addEventListener("lock", () => {
                 isLocked.current = true;

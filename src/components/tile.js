@@ -17,6 +17,8 @@ export default function Tile(props) {
   const [color, setColor] = useState("white");
   const [texture, setTexture] = useState("blank.jpg");
 
+  const mat = useLoader(TextureLoader, "Textures/"+texture)
+
   
 
   return (
@@ -40,7 +42,7 @@ export default function Tile(props) {
         geometry={nodes.Tile.geometry}
       >
         <meshStandardMaterial
-          map={useLoader(TextureLoader, "Textures/"+texture)}
+          map={mat}
           attach="material"
           emissive={emissive}
           color={color}
